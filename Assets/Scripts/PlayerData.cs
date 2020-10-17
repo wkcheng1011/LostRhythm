@@ -1,4 +1,4 @@
-﻿public static class Player
+﻿public static class PlayerData
 {
     public static int CharacterID { get; set; }
 

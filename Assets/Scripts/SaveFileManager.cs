@@ -36,11 +36,11 @@ public static class SaveFileManager
         {
             if (load)
             {
-                Player.CharacterID = CharacterID;
-                Player.Exp = Exp;
-                Player.MP = MP;
-                Player.HP = HP;
-                Player.MapID = MapID;
+                PlayerData.CharacterID = CharacterID;
+                PlayerData.Exp = Exp;
+                PlayerData.MP = MP;
+                PlayerData.HP = HP;
+                PlayerData.MapID = MapID;
             }
 
             return true;
@@ -51,11 +51,11 @@ public static class SaveFileManager
 
     public static bool Save()
     {
-        PlayerPrefs.SetInt("CharacterID", Player.CharacterID);
-        PlayerPrefs.SetInt("Exp", Player.Exp);
-        PlayerPrefs.SetInt("MP", Player.MP);
-        PlayerPrefs.SetInt("HP", Player.HP);
-        PlayerPrefs.SetInt("MapID", Player.MapID);
+        PlayerPrefs.SetInt("CharacterID", PlayerData.CharacterID);
+        PlayerPrefs.SetInt("Exp", PlayerData.Exp);
+        PlayerPrefs.SetInt("MP", PlayerData.MP);
+        PlayerPrefs.SetInt("HP", PlayerData.HP);
+        PlayerPrefs.SetInt("MapID", PlayerData.MapID);
 
         return true;
     }

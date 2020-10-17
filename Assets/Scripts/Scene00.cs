@@ -20,7 +20,7 @@ public class Scene00 : MonoBehaviour
         Credits.GetComponent<TextButton>().SetParent(this);
         Quit.GetComponent<TextButton>().SetParent(this);
 
-        Continue.GetComponent<Button>().interactable = Session.saveFileExist;
+        Continue.GetComponent<Button>().interactable = SessionData.SaveFileExist;
     }
     // Start is called before the first frame update
     void Start()
@@ -36,11 +36,10 @@ public class Scene00 : MonoBehaviour
 
     public void OnButtonClick(TextButton button)
     {
-        Debug.Log("Clicked " + button.name);
         switch (button.name)
         {
             case "NewGame":
-                SceneStack.LoadScene("Scene10_SelectChar");
+                // SceneStack.LoadScene("Scene10_SelectChar");
                 break;
             case "Continue":
                 break;
