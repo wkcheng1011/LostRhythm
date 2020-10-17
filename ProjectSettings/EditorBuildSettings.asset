@@ -5,7 +5,34 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/_preload.unity
+    guid: ec2dfe61b2adb4d4c97c678ee7e86d8b
+  - enabled: 1
+    path: Assets/Scenes/Scene00_Main.unity
+    guid: cbf6eeb1b03f1ea468b5e2e97cd04922
+  - enabled: 1
+    path: Assets/Scenes/Scene01_Settings.unity
+    guid: b8650b443a1bfde4daa4fce15817950a
+  - enabled: 1
+    path: Assets/Scenes/Scene02_Credits.unity
+    guid: b909497e98763f54fb0888bd81dacf79
+  - enabled: 1
+    path: Assets/Scenes/Scene10_SelectChar.unity
+    guid: 7d29bec5effeba046b237526b42e641a
+  - enabled: 1
+    path: Assets/Scenes/Scene20_Pause.unity
+    guid: 0faeec1b8180efc4680842ad3c1c695b
+  - enabled: 1
+    path: Assets/Scenes/Scene30_Map.unity
+    guid: 41ab792a0e5c27d42a6a3b2b2d83e496
+  - enabled: 1
+    path: Assets/Scenes/Scene40_Rhythm.unity
+    guid: 6c63f04e6ff66a04aa0b97563641abaa
+  - enabled: 1
+    path: Assets/Scenes/Scene41_Result.unity
+    guid: 7f69fff47f891d0488d0854feaef6890
   m_configObjects: {}
