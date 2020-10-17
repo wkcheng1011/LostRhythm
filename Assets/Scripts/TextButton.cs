@@ -8,13 +8,13 @@ public class TextButton : MonoBehaviour
 {
     private Scene00 parent;
 
-    public void setParent(Scene00 p)
+    public void SetParent(Scene00 p)
     {
         parent = p;
     }
 
-    public void onClick()
+    public void OnClick()
     {
-        parent.onButtonClick(this);
+        parent.OnButtonClick(this);
     }
 }

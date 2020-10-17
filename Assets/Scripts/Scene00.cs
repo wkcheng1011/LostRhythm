@@ -12,18 +12,20 @@ public class Scene00 : MonoBehaviour
     public GameObject Credits;
     public GameObject Quit;
 
-    bool saveFileExist = false;
+    void Awake()
+    {
+        NewGame.GetComponent<TextButton>().SetParent(this);
+        Continue.GetComponent<TextButton>().SetParent(this);
+        Settings.GetComponent<TextButton>().SetParent(this);
+        Credits.GetComponent<TextButton>().SetParent(this);
+        Quit.GetComponent<TextButton>().SetParent(this);
 
+        Continue.GetComponent<Button>().interactable = Session.saveFileExist;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        NewGame.GetComponent<TextButton>().setParent(this);
-        Continue.GetComponent<TextButton>().setParent(this);
-        Settings.GetComponent<TextButton>().setParent(this);
-        Credits.GetComponent<TextButton>().setParent(this);
-        Quit.GetComponent<TextButton>().setParent(this);
-
-        Continue.GetComponent<Button>().interactable = false;
+        
     }
 
     // Update is called once per frame
@@ -32,21 +34,21 @@ public class Scene00 : MonoBehaviour
 
     }
 
-    public void onButtonClick(TextButton button)
+    public void OnButtonClick(TextButton button)
     {
         Debug.Log("Clicked " + button.name);
         switch (button.name)
         {
             case "NewGame":
-                SceneManager.LoadScene("Scene10_SelectChar");
+                SceneStack.LoadScene("Scene10_SelectChar");
                 break;
             case "Continue":
                 break;
             case "Settings":
-                SceneManager.LoadScene("Scene01_Settings");
+                SceneStack.LoadScene("Scene01_Settings");
                 break;
             case "Credits":
-                SceneManager.LoadScene("Scene02_Credits");
+                SceneStack.LoadScene("Scene02_Credits");
                 break;
             case "Quit":
                 Application.Quit();
