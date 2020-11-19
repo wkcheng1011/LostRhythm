@@ -22,24 +22,13 @@ public class Scene00 : MonoBehaviour
 
         Continue.GetComponent<Button>().interactable = SessionData.SaveFileExist;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void OnButtonClick(TextButton button)
     {
         switch (button.name)
         {
             case "NewGame":
-                // SceneStack.LoadScene("Scene10_SelectChar");
+                SceneStack.LoadScene("Scene40_Rhythm");
                 break;
             case "Continue":
                 break;
