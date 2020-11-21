@@ -2,11 +2,13 @@
 
 public class EventListener : MonoBehaviour
 {
+    public LevelLoader levelLoader;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneStack.Back();
+            levelLoader.Back();
         }
     }
 }

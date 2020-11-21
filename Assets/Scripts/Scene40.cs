@@ -10,8 +10,13 @@ public class Scene40 : MonoBehaviour
 
     public float beatTempo;
     public AudioSource audioSource;
+    public AudioSource beatSource;
+
+    public ProgressBar audioProgress;
+
     public bool hasStarted;
     public BeatScroller beatScroller;
+    public float offset;
 
     private int score = 0;
     public Text scoreText;
@@ -22,6 +27,7 @@ public class Scene40 : MonoBehaviour
     public GameObject notePrefab;
 
     private float timeAfterStart;
+
     private int hitNotes, missNotes, totalNotes;
 
     // Start is called before the first frame update
@@ -46,7 +52,7 @@ public class Scene40 : MonoBehaviour
                 lane = lastLane + random.Next(range[0], range[1]);
             } while (lane == lastLane && !(random.Next(0, 9) == 0));
 
-            GameObject obj = Instantiate(notePrefab, new Vector3(640 - 350 + lane * 100, 800 + i * 100, 0f), Quaternion.identity);
+            GameObject obj = Instantiate(notePrefab, new Vector3(280 + Constants.NOTE_SIZE / 2 + lane * Constants.NOTE_SIZE, Constants.NOTE_SIZE * (8 + i), 0f), Quaternion.identity);
 
             obj.transform.SetParent(GameObject.Find("NoteHolder").transform);
             lastLane = lane;
@@ -66,7 +72,7 @@ public class Scene40 : MonoBehaviour
         if (hasStarted && !audioSource.isPlaying)
         {
             timeAfterStart += Time.deltaTime;
-            if (timeAfterStart >= 60f / beatTempo * 4)
+            if (timeAfterStart >= 60f / beatTempo * 4 + offset)
             {
                 audioSource.Play();
             }
@@ -75,6 +81,7 @@ public class Scene40 : MonoBehaviour
         {
             Application.Quit();
         }
+        audioProgress.setValue(audioSource.time / audioSource.clip.length);
     }
 
     public void NoteHit(bool hit)
@@ -87,8 +94,10 @@ public class Scene40 : MonoBehaviour
         {
             combo++;
             hitNotes++;
+
+            beatSource.Play();
         }
-        score += (int)(300 * combo / 100f);
+        score += (int)(300f * (combo / 100f));
 
         scoreText.text = score.ToString();
         comboText.text = combo.ToString();

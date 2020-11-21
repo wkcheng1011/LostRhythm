@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class Scene00 : MonoBehaviour
 {
+    public Scene00 instance;
+
+    public LevelLoader levelLoader;
+
     public GameObject NewGame;
     public GameObject Continue;
     public GameObject Settings;
@@ -28,15 +32,15 @@ public class Scene00 : MonoBehaviour
         switch (button.name)
         {
             case "NewGame":
-                SceneStack.LoadScene("Scene40_Rhythm");
+                levelLoader.LoadScene("Scene40_Rhythm");
                 break;
             case "Continue":
                 break;
             case "Settings":
-                SceneStack.LoadScene("Scene01_Settings");
+                levelLoader.LoadScene("Scene01_Settings");
                 break;
             case "Credits":
-                SceneStack.LoadScene("Scene02_Credits");
+                levelLoader.LoadScene("Scene02_Credits");
                 break;
             case "Quit":
                 Application.Quit();
