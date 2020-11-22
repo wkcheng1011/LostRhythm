@@ -6,6 +6,8 @@ public class NoteObject : MonoBehaviour
 {
     public static NoteObject instance;
 
+    public Constants.NOTE_TYPE noteType = Constants.NOTE_TYPE.NORMAL;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +16,9 @@ public class NoteObject : MonoBehaviour
 
     void Update()
     {
-        if (gameObject.transform.position[1] < 20)
+        if (gameObject.transform.position[1] < 20 && noteType != Constants.NOTE_TYPE.BOMB)
         {
-            Scene40.instance.NoteHit(false);
+            Scene40.instance.NoteHit(Constants.NOTE_TYPE.BOMB);
             gameObject.SetActive(false);
         }
     }
@@ -25,7 +27,7 @@ public class NoteObject : MonoBehaviour
         // Debug.Log(collision);
         if (collision.CompareTag("Player"))
         {
-            Scene40.instance.NoteHit(true);
+            Scene40.instance.NoteHit(noteType);
             gameObject.SetActive(false);
         }
     }

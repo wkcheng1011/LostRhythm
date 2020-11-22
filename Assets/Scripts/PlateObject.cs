@@ -16,15 +16,15 @@ public class PlateObject : MonoBehaviour
     void Update()
     {
         float x = gameObject.transform.position[0];
-        bool isAccel = Input.GetKey(KeyCode.LeftShift);
-        bool isDecel = Input.GetKey(KeyCode.RightShift);
+        bool isAccel = Input.GetKey(KeyCode.RightShift);
+        bool isDecel = Input.GetKey(KeyCode.LeftShift);
 
         Vector3 displacement = transform.right * Time.deltaTime * Constants.PLATE_SPEED * (isAccel ? 1.5f : isDecel ? 0.5f : 1f);
 
-        if (Input.GetKey(KeyCode.A) && x > 0)
+        if (Input.GetKey(KeyCode.A) && x > 160)
         {
             gameObject.transform.position -= displacement;
-        } else if (Input.GetKey(KeyCode.D) && x < 1280)
+        } else if (Input.GetKey(KeyCode.D) && x < 1120)
         {
             gameObject.transform.position += displacement;
         }

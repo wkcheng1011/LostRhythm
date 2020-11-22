@@ -14,7 +14,8 @@ public class Scene40 : MonoBehaviour
 
     public ProgressBar audioProgress;
 
-    public bool hasStarted;
+    private bool hasStarted = false;
+    private bool hasEnded = false;
     public BeatScroller beatScroller;
     public float offset;
 
@@ -24,7 +25,7 @@ public class Scene40 : MonoBehaviour
     private int combo = 0;
     public Text comboText;
 
-    public GameObject notePrefab;
+    public GameObject[] notePrefabs = new GameObject[3];
 
     private float timeAfterStart;
 
@@ -40,11 +41,8 @@ public class Scene40 : MonoBehaviour
         int lastLane = 3;
 
         System.Random random = new System.Random();
-        for (int i = 0; i < totalNotes * 9 / 8; i++)
+        for (int i = 0; i < totalNotes * 8; i += 2)
         {
-
-            if (i % 9 == 0) continue;
-
             int lane;
             do
             {
@@ -52,13 +50,14 @@ public class Scene40 : MonoBehaviour
                 lane = lastLane + random.Next(range[0], range[1]);
             } while (lane == lastLane && !(random.Next(0, 9) == 0));
 
-            GameObject obj = Instantiate(notePrefab, new Vector3(280 + Constants.NOTE_SIZE / 2 + lane * Constants.NOTE_SIZE, Constants.NOTE_SIZE * (8 + i), 0f), Quaternion.identity);
+            GameObject obj = Instantiate(notePrefabs[random.Next(0, 3)], new Vector3(280 + Constants.NOTE_SIZE / 2 + lane * Constants.NOTE_SIZE, Constants.NOTE_SIZE * (8 + i), 0f), Quaternion.identity);
 
             obj.transform.SetParent(GameObject.Find("NoteHolder").transform);
             lastLane = lane;
         }
 
         BeatScroller.beatTempo = beatTempo;
+
     }
 
     // Update is called once per frame
@@ -77,26 +76,36 @@ public class Scene40 : MonoBehaviour
                 audioSource.Play();
             }
         }
-        if (missNotes + hitNotes == totalNotes)
+        if (!hasEnded && !audioSource.isPlaying)
         {
+            hasStarted = false;
+            hasEnded = true;
             Application.Quit();
         }
         audioProgress.setValue(audioSource.time / audioSource.clip.length);
     }
 
-    public void NoteHit(bool hit)
+    public void NoteHit(Constants.NOTE_TYPE type)
     {
-        if (!hit)
+        switch (type)
         {
-            combo = 0;
-            missNotes++;
-        } else
-        {
-            combo++;
-            hitNotes++;
+            case Constants.NOTE_TYPE.BOMB:
+                combo = 0;
+                missNotes++;
+                break;
+            case Constants.NOTE_TYPE.SPECIAL:
+                combo++;
+                goto case Constants.NOTE_TYPE.NORMAL;
+            case Constants.NOTE_TYPE.NORMAL:
+                combo++;
+                hitNotes++;
 
-            beatSource.Play();
+                beatSource.Play();
+                break;
+            default:
+                break;
         }
+
         score += (int)(300f * (combo / 100f));
 
         scoreText.text = score.ToString();
