@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene10_SelectChar.unity
     guid: 7d29bec5effeba046b237526b42e641a
   - enabled: 1
-    path: Assets/Scenes/Scene20_Pause.unity
-    guid: 0faeec1b8180efc4680842ad3c1c695b
-  - enabled: 1
     path: Assets/Scenes/Scene30_Map.unity
     guid: 41ab792a0e5c27d42a6a3b2b2d83e496
   - enabled: 1

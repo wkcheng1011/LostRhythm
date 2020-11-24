@@ -16,9 +16,9 @@ public class NoteObject : MonoBehaviour
 
     void Update()
     {
-        if (gameObject.transform.position[1] < 20 && noteType != Constants.NOTE_TYPE.BOMB)
+        if (gameObject.transform.position[1] < 20)
         {
-            Scene40.instance.NoteHit(Constants.NOTE_TYPE.BOMB);
+            if (noteType != Constants.NOTE_TYPE.BOMB) Scene40.instance.NoteHit(Constants.NOTE_TYPE.BOMB);
             gameObject.SetActive(false);
         }
     }
