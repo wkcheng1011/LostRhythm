@@ -8,12 +8,16 @@ public class Scene40 : MonoBehaviour
 {
     public static Scene40 instance;
 
+    public LevelLoader levelLoader;
+    public PauseScreen pauseScreen;
+
     public float beatTempo;
     public AudioSource audioSource;
     public AudioSource beatSource;
 
     private bool isPlaying = false;
     public BeatScroller beatScroller;
+    public PlateObject plateObject;
     public float offset;
 
     public ProgressBar playerMp;
@@ -86,8 +90,7 @@ public class Scene40 : MonoBehaviour
 
         if (playerHp.value == 0)
         {
-            //BeatScroller.hasStarted = false;
-            //Application.Quit();
+            Finish();
         }
 
         if (audioSource.time == audioSource.clip.length)
@@ -95,8 +98,21 @@ public class Scene40 : MonoBehaviour
             BeatScroller.hasStarted = false;
             Application.Quit();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseScreen.active)
+            {
+                StartCoroutine(Resume());
+            }
+            else
+            {
+                plateObject.movable = false;
+                BeatScroller.hasStarted = false;
+                audioSource.Pause();
+                pauseScreen.active = true;
+            }
+        }
     }
-
     public void NoteHit(Constants.NOTE_TYPE type)
     {
         switch (type)
@@ -104,20 +120,20 @@ public class Scene40 : MonoBehaviour
             case Constants.NOTE_TYPE.BOMB:
                 combo = 0;
                 missNotes++;
-                playerHp.value -= 0.1f;
-                playerMp.value -= 0.1f;
+                playerHp.value -= 0.05f;
+                playerMp.value -= 0.05f;
                 bossMp.value += 0.05f;
                 bossHp.value += 0.05f;
                 break;
             case Constants.NOTE_TYPE.SPECIAL:
                 combo++;
-                bossHp.value -= 0.1f;
+                bossHp.value -= 0.05f;
+                playerHp.value += 0.05f;
                 goto case Constants.NOTE_TYPE.NORMAL;
             case Constants.NOTE_TYPE.NORMAL:
                 combo++;
                 hitNotes++;
-                playerMp.value += 0.1f;
-                playerHp.value += 0.05f;
+                playerMp.value += 0.01f;
 
                 beatSource.Play();
                 break;
@@ -129,5 +145,24 @@ public class Scene40 : MonoBehaviour
 
         scoreText.text = score.ToString();
         comboText.text = combo.ToString();
+    }
+
+    public IEnumerator Resume()
+    {
+        pauseScreen.active = false;
+        yield return new WaitForSeconds(3);
+
+        plateObject.movable = true;
+        BeatScroller.hasStarted = true;
+        audioSource.Play();
+        pauseScreen.active = false;
+    }
+
+    public void Finish()
+    {
+        PlayerData.HP = playerHp.value;
+        PlayerData.MP = playerMp.value;
+
+        levelLoader.LoadScene(7);
     }
 }

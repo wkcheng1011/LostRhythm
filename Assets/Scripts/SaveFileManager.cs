@@ -8,6 +8,10 @@ public static class SaveFileManager
         PlayerPrefs.DeleteAll();
     }
 
+    public static bool IsInBoundary(float a, float lower)
+    {
+        return a >= lower;
+    }
     public static bool IsInBoundary(int a, int lower)
     {
         return a >= lower;
@@ -22,8 +26,8 @@ public static class SaveFileManager
     {
         int CharacterID = PlayerPrefs.GetInt("CharacterID", -1);
         int Exp = PlayerPrefs.GetInt("Exp", -1);
-        int MP = PlayerPrefs.GetInt("MP", -1);
-        int HP = PlayerPrefs.GetInt("HP", -1);
+        float MP = PlayerPrefs.GetFloat("MP", -1f);
+        float HP = PlayerPrefs.GetFloat("HP", -1f);
         int MapID = PlayerPrefs.GetInt("MapID", -1);
 
         if (
@@ -53,8 +57,8 @@ public static class SaveFileManager
     {
         PlayerPrefs.SetInt("CharacterID", PlayerData.CharacterID);
         PlayerPrefs.SetInt("Exp", PlayerData.Exp);
-        PlayerPrefs.SetInt("MP", PlayerData.MP);
-        PlayerPrefs.SetInt("HP", PlayerData.HP);
+        PlayerPrefs.SetFloat("MP", PlayerData.MP);
+        PlayerPrefs.SetFloat("HP", PlayerData.HP);
         PlayerPrefs.SetInt("MapID", PlayerData.MapID);
 
         return true;

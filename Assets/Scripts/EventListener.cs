@@ -8,7 +8,12 @@ public class EventListener : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            levelLoader.Back();
+            if (gameObject.scene.buildIndex < 5) {
+                levelLoader.Back();
+            } else if (gameObject.scene.buildIndex == 7)
+            {
+                levelLoader.LoadScene(5);
+            }
         }
     }
 }

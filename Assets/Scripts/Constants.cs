@@ -18,11 +18,6 @@ public static class Constants
     };
 
     public static readonly int PLATE_SPEED = 1000;
-    public static class Strings
-    {
-        public const string SONG_NAME = "Song Name: {0}";
-        public const string SONG_ARTIST = "Artist: {0}";
-    }
 
-    public static readonly int DIFF_COEFF = 4;
+    public static readonly int DIFF_COEFF = 8;
 }

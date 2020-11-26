@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class Scene00 : MonoBehaviour
 {
@@ -10,21 +6,21 @@ public class Scene00 : MonoBehaviour
 
     public LevelLoader levelLoader;
 
-    public GameObject NewGame;
-    public GameObject Continue;
-    public GameObject Settings;
-    public GameObject Credits;
-    public GameObject Quit;
+    public TextButton NewGame;
+    public TextButton Continue;
+    public TextButton Settings;
+    public TextButton Credits;
+    public TextButton Quit;
 
     void Awake()
     {
-        NewGame.GetComponent<TextButton>().SetParent(this);
-        Continue.GetComponent<TextButton>().SetParent(this);
-        Settings.GetComponent<TextButton>().SetParent(this);
-        Credits.GetComponent<TextButton>().SetParent(this);
-        Quit.GetComponent<TextButton>().SetParent(this);
+        NewGame.SetCallback(OnButtonClick);
+        Continue.SetCallback(OnButtonClick);
+        Settings.SetCallback(OnButtonClick);
+        Credits.SetCallback(OnButtonClick);
+        Quit.SetCallback(OnButtonClick);
 
-        Continue.GetComponent<Button>().interactable = SessionData.SaveFileExist;
+        Continue.interactable = SessionData.SaveFileExist;
     }
 
     public void OnButtonClick(TextButton button)
@@ -32,18 +28,18 @@ public class Scene00 : MonoBehaviour
         switch (button.name)
         {
             case "NewGame":
-                levelLoader.LoadScene("Scene40_Rhythm");
+                levelLoader.LoadScene(6);
                 break;
             case "Continue":
                 break;
             case "Settings":
-                levelLoader.LoadScene("Scene01_Settings");
+                levelLoader.LoadScene(2);
                 break;
             case "Credits":
-                levelLoader.LoadScene("Scene02_Credits");
+                levelLoader.LoadScene(1);
                 break;
             case "Quit":
-                Application.Quit();
+                levelLoader.Back();
                 break;
             default:
                 break;

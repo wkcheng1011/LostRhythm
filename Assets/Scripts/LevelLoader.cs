@@ -14,16 +14,16 @@ public class LevelLoader : MonoBehaviour
         instance = this;
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(int buildIndex)
     {
-        StartCoroutine(_LoadScene(sceneName));
+        StartCoroutine(_LoadScene(buildIndex));
     }
 
-    IEnumerator _LoadScene(string sceneName)
+    IEnumerator _LoadScene(int buildIndex)
     {
         transition.SetTrigger("Start");
         yield return new WaitForSecondsRealtime(1);
-        SceneStack.LoadScene(sceneName);
+        SceneStack.LoadScene(buildIndex);
     }
 
     public void Back()

@@ -1,20 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TextButton : MonoBehaviour
 {
-    private Scene00 parent;
+    private Action<TextButton> callback;
 
-    public void SetParent(Scene00 p)
+    public void SetCallback(Action<TextButton> action)
     {
-        parent = p;
+        callback = action;
     }
 
     public void OnClick()
     {
-        parent.OnButtonClick(this);
+        callback(this);
+    }
+
+    public bool interactable
+    {
+        get
+        {
+            return gameObject.GetComponent<Button>().interactable;
+        }
+        set
+        {
+            gameObject.GetComponent<Button>().interactable = value;
+        }
     }
 }

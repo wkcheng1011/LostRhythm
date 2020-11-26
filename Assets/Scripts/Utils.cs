@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
 public class Utils
 {
     private static System.Random random = new System.Random();

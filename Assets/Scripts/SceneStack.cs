@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public static class SceneStack {
-    private static Stack<string> sceneIndice = new Stack<string>();
+    private static Stack<int> sceneIndice = new Stack<int>();
 
-    public static void LoadScene(string sceneName)
+    public static void LoadScene(int buildIndex)
     {
-        sceneIndice.Push(sceneName);
-        SceneManager.LoadScene(sceneName);
+        sceneIndice.Push(buildIndex);
+        SceneManager.LoadScene(buildIndex);
     }
 
     public static void Back()
@@ -21,8 +21,8 @@ public static class SceneStack {
         else
         {
             sceneIndice.Pop();
-            string sceneName = sceneIndice.Peek();
-            SceneManager.LoadScene(sceneName);
+            int buildIndex = sceneIndice.Peek();
+            SceneManager.LoadScene(buildIndex);
         }
     }
 

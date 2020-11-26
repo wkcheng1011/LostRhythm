@@ -9,6 +9,6 @@ public class Init : MonoBehaviour
     void Start()
     {
         SessionData.SaveFileExist = SaveFileManager.Check(false);
-        SceneStack.LoadScene("Scene00_Main");
+        SceneStack.LoadScene(1);
     }
 }
