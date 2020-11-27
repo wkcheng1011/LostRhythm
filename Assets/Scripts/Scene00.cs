@@ -32,9 +32,6 @@ public class Scene00 : MonoBehaviour
                 break;
             case "Continue":
                 break;
-            case "Settings":
-                levelLoader.LoadScene(2);
-                break;
             case "Credits":
                 levelLoader.LoadScene(1);
                 break;
