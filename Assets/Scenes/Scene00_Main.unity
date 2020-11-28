@@ -727,47 +727,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 511847118}
     m_Modifications:
-    - target: {fileID: 8747186402206311324, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Name
-      value: VolumeSlider
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747186402271105003, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Text
-      value: Full Screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747186402271105003, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747186402271105003, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747186402271105003, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747186402289355277, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Name
-      value: FullScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747186402532825528, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: bcf99e42074ad5444a7dcba9f80ea8f0,
-        type: 3}
-    - target: {fileID: 8747186402532825533, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Name
-      value: BackButton
-      objectReference: {fileID: 0}
     - target: {fileID: 8747186402539524776, guid: 79fa2029e2b36a444bf047e55660c492,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -793,17 +752,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8747186402998261088, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Name
-      value: MenuImage
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747186402998261102, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e7432abf044ac4f41b62cb462700d64e,
-        type: 3}
     - target: {fileID: 8747186403294042288, guid: 79fa2029e2b36a444bf047e55660c492,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -862,22 +810,22 @@ PrefabInstance:
     - target: {fileID: 8747186403294042288, guid: 79fa2029e2b36a444bf047e55660c492,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000005722
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8747186403294042288, guid: 79fa2029e2b36a444bf047e55660c492,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8747186403294042288, guid: 79fa2029e2b36a444bf047e55660c492,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 735.01807
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 8747186403294042288, guid: 79fa2029e2b36a444bf047e55660c492,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 389.08618
+      value: 576
       objectReference: {fileID: 0}
     - target: {fileID: 8747186403294042288, guid: 79fa2029e2b36a444bf047e55660c492,
         type: 3}
@@ -909,26 +857,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8747186403294042289, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: AudioMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: fe915bc741b08ed418d4acec268a8acd,
-        type: 2}
     - target: {fileID: 8747186403294042291, guid: 79fa2029e2b36a444bf047e55660c492,
         type: 3}
       propertyPath: m_Name
       value: OptionMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747186403294042291, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747186403510744586, guid: 79fa2029e2b36a444bf047e55660c492,
-        type: 3}
-      propertyPath: m_Name
-      value: Resolution
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79fa2029e2b36a444bf047e55660c492, type: 3}
