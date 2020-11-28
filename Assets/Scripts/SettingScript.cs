@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -7,6 +8,8 @@ using UnityEngine.UI;
 public class SettingScript : MonoBehaviour
 {
     public AudioMixer AudioMixer;
+    public Slider volumeSlider;
+
     public Dropdown resolutionDropdown;
     Resolution[] resolutions;
     public Toggle fullscreenToggle;
@@ -14,12 +17,16 @@ public class SettingScript : MonoBehaviour
     public void SetVolume(float volume)
     {
         AudioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("volume", volume);
     }
 
     private void Start()
     {
+        volumeSlider.value = PlayerPrefs.GetFloat("volume", 0.5f);
+        SetVolume(volumeSlider.value);
+
         fullscreenToggle.isOn = Screen.fullScreen;
-        resolutions = Screen.resolutions;
+        resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
 
