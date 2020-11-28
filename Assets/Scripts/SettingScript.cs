@@ -9,7 +9,7 @@ public class SettingScript : MonoBehaviour
     public AudioMixer AudioMixer;
     public Dropdown resolutionDropdown;
     Resolution[] resolutions;
-    public GameObject fullscreenToggle;
+    public Toggle fullscreenToggle;
 
     public void SetVolume(float volume)
     {
@@ -18,7 +18,7 @@ public class SettingScript : MonoBehaviour
 
     private void Start()
     {
-        fullscreenToggle.GetComponent<Toggle>().isOn = Screen.fullScreen;
+        fullscreenToggle.isOn = Screen.fullScreen;
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
