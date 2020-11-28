@@ -4,49 +4,59 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class settingScript : MonoBehaviour
+public class SettingScript : MonoBehaviour
 {
     public AudioMixer AudioMixer;
-    public Dropdown resolution;
+    public Dropdown resolutionDropdown;
     Resolution[] resolutions;
-    GameObject fullscreenToggle;
+    public GameObject fullscreenToggle;
 
-
-    public void SetVolume(float volume) {
-        AudioMixer.SetFloat("volume",volume);
+    public void SetVolume(float volume)
+    {
+        AudioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
     }
 
     private void Start()
     {
-        fullscreenToggle = GameObject.Find("FullScreen");
         fullscreenToggle.GetComponent<Toggle>().isOn = Screen.fullScreen;
         resolutions = Screen.resolutions;
-        resolution.ClearOptions();
+        resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
 
-        for (int i = 0; i < resolutions.Length; i++) {
+        for (int i = 0; i < resolutions.Length; i++)
+        {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
-
         }
-        resolution.AddOptions(options);
-        if (PlayerPrefs.HasKey("Resolution")) resolution.value = PlayerPrefs.GetInt("Resolution");
-        else resolution.value = 0;
-        resolution.RefreshShownValue();
-        
-        
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = PlayerPrefs.GetInt("Resolution", 0);
+
+        resolutionDropdown.RefreshShownValue();
     }
-    public void SetResolution(int index) {
-        
+
+    public void SetResolution(int index)
+    {
         Resolution resolution = resolutions[index];
-        Screen.SetResolution(resolution.width, resolution.height,Screen.fullScreen);
-        PlayerPrefs.SetInt("Resolution", index);
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-    public void SetQuality(int qualityIndex) {
+
+    public void SetQuality(int qualityIndex)
+    {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
-    public void SetFullScreen(bool condition) {
+    public void SetFullScreen(bool condition)
+    {
         Screen.fullScreen = condition;
+    }
+
+    public void OnSave()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void OnCancel()
+    {
+        gameObject.SetActive(false);
     }
 }
