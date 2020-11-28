@@ -1,0 +1,248 @@
+fileFormatVersion: 2
+guid: 3282f1651b7af354daea906822eacd1b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3616546398570601655
+    second: $yuhina005_0
+  - first:
+      213: 7015575692805995032
+    second: $yuhina005_1
+  - first:
+      213: 2901659438866321973
+    second: $yuhina005_2
+  - first:
+      213: -6593790110747471148
+    second: $yuhina005_3
+  - first:
+      213: 8815965176813084438
+    second: $yuhina005_4
+  - first:
+      213: -4947057524409149336
+    second: $yuhina005_5
+  - first:
+      213: 8755223067018229091
+    second: $yuhina005_6
+  - first:
+      213: 2363366531569059726
+    second: $yuhina005_7
+  - first:
+      213: 8113487695691256956
+    second: $yuhina005_8
+  - first:
+      213: 8738715948590963300
+    second: $yuhina005_9
+  - first:
+      213: -4367907561014262867
+    second: $yuhina005_10
+  - first:
+      213: -8717614173776171233
+    second: $yuhina005_11
+  - first:
+      213: 8914946347442501570
+    second: $yuhina005_12
+  - first:
+      213: -3387403290419629767
+    second: $yuhina005_13
+  - first:
+      213: -9176401422669664036
+    second: $yuhina005_14
+  - first:
+      213: 2727818084486990068
+    second: $yuhina005_15
+  - first:
+      213: -4770671448479075402
+    second: $yuhina005_16
+  - first:
+      213: -5493802094957662485
+    second: $yuhina005_17
+  - first:
+      213: -6612381518559108484
+    second: $yuhina005_18
+  - first:
+      213: 8203806759345124042
+    second: $yuhina005_19
+  - first:
+      213: 8949556118495174638
+    second: $yuhina005_20
+  - first:
+      213: -1046664666181001724
+    second: $yuhina005_21
+  - first:
+      213: -8659713463053454
+    second: $yuhina005_22
+  - first:
+      213: -1686634502204106283
+    second: $yuhina005_23
+  - first:
+      213: 2453744943293657001
+    second: $yuhina005_24
+  - first:
+      213: 994762745613738440
+    second: $yuhina005_25
+  - first:
+      213: -8971881537612412757
+    second: $yuhina005_26
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: $yuhina005_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 32
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bcd488c9cd803230800000000000000
+      internalID: 3616546398570601655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $yuhina005_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 32
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81af0982ce45c5160800000000000000
+      internalID: 7015575692805995032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $yuhina005_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 32
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53259c0d2e3c44820800000000000000
+      internalID: 2901659438866321973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
