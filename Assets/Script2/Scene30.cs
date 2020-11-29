@@ -53,6 +53,7 @@ public class Scene30 : Pausable
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
             {
                 DialogContinue();
+                if (dice.active) dice.Roll();
             }
         }
 
