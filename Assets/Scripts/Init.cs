@@ -8,6 +8,7 @@ public class Init : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SceneStack.Reset();
         SceneStack.LoadScene(1);
     }
 }
