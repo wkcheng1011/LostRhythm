@@ -34,15 +34,13 @@ public class Scene40 : Pausable
 
     private float timeAfterStart;
 
-    private int hitNotes, missNotes, totalNotes;
-
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
 
         int totalBeats = (int)Math.Floor(beatTempo / 60f * audioSource.clip.length / 4f);
-        totalNotes = totalBeats * Constants.DIFF_COEFF;
+        int totalNotes = totalBeats * Constants.DIFF_COEFF;
 
         int lastLane = 3;
 
@@ -56,8 +54,10 @@ public class Scene40 : Pausable
                 lane = lastLane + random.Next(range[0], range[1]);
             } while (lane == lastLane && !(random.Next(0, 9) == 0));
 
+            int noteType = (int)Utils.Urandom(Constants.NOTE_PROB);
+
             GameObject obj = Instantiate(
-                notePrefabs[(int)Utils.Urandom(Constants.NOTE_PROB)], 
+                notePrefabs[noteType], 
                 new Vector3(
                     280 + Constants.NOTE_SIZE / 2 + lane * Constants.NOTE_SIZE, 
                     Constants.NOTE_SIZE * (8 + i), 
@@ -68,10 +68,11 @@ public class Scene40 : Pausable
 
             obj.transform.SetParent(GameObject.Find("NoteHolder").transform);
             lastLane = lane;
+
+            PlayerData.noteTotal[noteType]++;
         }
 
         BeatScroller.beatTempo = beatTempo;
-
     }
 
     // Update is called once per frame
@@ -90,14 +91,15 @@ public class Scene40 : Pausable
 
         if (playerHp.value == 0)
         {
+            PlayerData.isPass = false;
             Finish();
         }
 
         if (audioSource.time == audioSource.clip.length)
         {
-            BeatScroller.hasStarted = false;
-            Application.Quit();
+            Finish();
         }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (pauseScreen.active)
@@ -119,7 +121,6 @@ public class Scene40 : Pausable
         {
             case Constants.NOTE_TYPE.BOMB:
                 combo = 0;
-                missNotes++;
                 playerHp.value -= 0.05f;
                 playerMp.value -= 0.05f;
                 bossMp.value += 0.05f;
@@ -132,7 +133,6 @@ public class Scene40 : Pausable
                 goto case Constants.NOTE_TYPE.NORMAL;
             case Constants.NOTE_TYPE.NORMAL:
                 combo++;
-                hitNotes++;
                 playerMp.value += 0.01f;
 
                 beatSource.Play();
@@ -140,6 +140,8 @@ public class Scene40 : Pausable
             default:
                 break;
         }
+
+        PlayerData.noteHit[(int)type]++;
 
         score += (int)(300f * (combo / 100f));
 
@@ -161,8 +163,6 @@ public class Scene40 : Pausable
     {
         PlayerData.HP = playerHp.value;
         PlayerData.MP = playerMp.value;
-
-        PlayerData.result = new int[3] { 0, 0, 0 };
 
         levelLoader.LoadScene(7);
     }
