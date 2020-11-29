@@ -7,6 +7,7 @@ public class Move : MonoBehaviour
 {
     
     public Transform[] waypoints;
+    
 
     [SerializeField]
     private float moveSpeed = 1f;
@@ -15,19 +16,25 @@ public class Move : MonoBehaviour
     public int waypointIndex = 0;
 
     public bool moveAllowed = false;
+    private Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moveAllowed) { Go();
-            
+        if (moveAllowed)
+        {
+            Go();
+            animator.SetBool("IsWalking", true);
+
         }
+        else { animator.SetBool("IsWalking", false); }
     }
 
     private void Go(){

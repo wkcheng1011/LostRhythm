@@ -10,6 +10,7 @@ public class Dialog : MonoBehaviour
     public float typingSpeed;
     public GameObject continueButton, dice, image, text;
     public static bool dialogEnd = false;
+    public bool dialogEndForObject = false;
     
 
     public void CallDialog()
@@ -65,6 +66,7 @@ public class Dialog : MonoBehaviour
             continueButton.SetActive(false);
             dice.SetActive(true);
             dialogEnd = true;
+            dialogEndForObject = true;
             
             
         }
