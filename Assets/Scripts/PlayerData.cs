@@ -9,5 +9,7 @@
     public static float HP { get; set; }
 
     public static int MapID { get; set; }
+
+    public static int[] result { get; set; }
 }
     

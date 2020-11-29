@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 199556526}
   - component: {fileID: 199556528}
   - component: {fileID: 199556529}
+  - component: {fileID: 199556530}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -482,6 +483,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19961995, y: 0.33009496}
   m_EdgeRadius: 0
+--- !u!95 &199556530
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199556525}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47376564970e5b14f8ba042569f39395, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &214151593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1525,68 @@ Transform:
   m_Father: {fileID: 1270127388}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1438751783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1438751785}
+  - component: {fileID: 1438751784}
+  m_Layer: 5
+  m_Name: Dialog3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1438751784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438751783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8dda077b3d00847a665178f576b221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDisplay: {fileID: 910407019}
+  sentences:
+  - <b>G a w r!!!!!</b>
+  - <i>A fierce beast growled at you.</i>
+  - <i>Your instinct tell you to escape.</i>
+  - <i>The sword you just picked up started trembling and shining.</i>
+  - <i>Your feel a power running through your body.</i>
+  - <u><b>I am ready.</b></u>
+  typingSpeed: 0.01
+  continueButton: {fileID: 298054997}
+  dice: {fileID: 2136235938}
+  image: {fileID: 1985208101}
+  text: {fileID: 910407017}
+  dialogEndForObject: 0
+--- !u!224 &1438751785
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438751783}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1985208102}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1509015959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,6 +1647,7 @@ MonoBehaviour:
   dice: {fileID: 2136235938}
   image: {fileID: 1985208101}
   text: {fileID: 910407017}
+  dialogEndForObject: 0
 --- !u!1 &1548466179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,7 +2344,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1880506739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc025a68e64ecdc4091d0231d1600c9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e3a6c452ed7bf247ae8fa468ab665ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   instance: {fileID: 0}
@@ -2272,10 +2355,9 @@ MonoBehaviour:
   playerStartWayPoint: 0
   dialog1: {fileID: 1509015961}
   dialog2: {fileID: 1915130122}
-  condition1: 1
-  condition2: 1
-  conditionForDialog1: 1
-  conditionForDialog2: 0
+  dialog3: {fileID: 1438751784}
+  conditionForOnce: 0101
+  conditionForDialog: 010000
   sword: {fileID: 1548466179}
   monster: {fileID: 1362690306}
 --- !u!1 &1915130120
@@ -2339,6 +2421,7 @@ MonoBehaviour:
   dice: {fileID: 2136235938}
   image: {fileID: 1985208101}
   text: {fileID: 910407017}
+  dialogEndForObject: 0
 --- !u!1 &1943458762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,6 +2536,7 @@ RectTransform:
   - {fileID: 298054998}
   - {fileID: 1509015960}
   - {fileID: 1915130121}
+  - {fileID: 1438751785}
   m_Father: {fileID: 1654877687}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2637,7 +2721,7 @@ GameObject:
   - component: {fileID: 2136235941}
   - component: {fileID: 2136235940}
   - component: {fileID: 2136235939}
-  - component: {fileID: 2136235942}
+  - component: {fileID: 2136235943}
   m_Layer: 0
   m_Name: Dice
   m_TagString: Untagged
@@ -2707,7 +2791,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a6ef3e7ffca0df84f8c2c2b36bed4250, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75e96bef038128349a4545789644853f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2727,34 +2811,62 @@ Transform:
   m_GameObject: {fileID: 2136235938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 918, y: 258, z: 0}
-  m_LocalScale: {x: 56.018738, y: 56.018738, z: 56.018738}
+  m_LocalScale: {x: 50, y: 50, z: 0}
   m_Children: []
   m_Father: {fileID: 1270127388}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2136235942
-BoxCollider2D:
+--- !u!114 &2136235943
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136235938}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.64, y: 3.64}
-    newSize: {x: 3.64, y: 3.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.64, y: 3.64}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2136235939}
+        m_MethodName: Roll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1

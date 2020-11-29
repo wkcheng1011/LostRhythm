@@ -15,9 +15,9 @@ public class Scene30 : Pausable
 
     public Dice dice;
     public int playerStartWayPoint = 0;
-    public Dialog dialog1, dialog2;
-    
-    public bool condition1, condition2, conditionForDialog1, conditionForDialog2;
+
+    public Dialog dialog1, dialog2, dialog3;
+    public bool[] conditionForOnce = { true, true }, conditionForDialog = { true, false, false };
 
     public GameObject sword;
     public GameObject monster;
@@ -30,8 +30,9 @@ public class Scene30 : Pausable
 
     public void DialogContinue()
     {
-        if (conditionForDialog1) { dialog1.NextSentence(); }
-        if (conditionForDialog2) { dialog2.NextSentence(); }
+        if (conditionForDialog[0]) { dialog1.NextSentence(); }
+        if (conditionForDialog[1]) { dialog2.NextSentence(); }
+        if (conditionForDialog[2]) { dialog3.NextSentence(); }
     }
 
     void Event()
@@ -52,7 +53,6 @@ public class Scene30 : Pausable
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
             {
                 DialogContinue();
-                if (dice.active) dice.Roll();
             }
         }
 
@@ -62,22 +62,33 @@ public class Scene30 : Pausable
             playerStartWayPoint = characterMove.waypointIndex - 1;
         }
 
-        if (characterMove.waypointIndex == 4 && condition1)
+        if (characterMove.waypointIndex == 4 && conditionForOnce[0])
         {
-            conditionForDialog2 = true;
-            conditionForDialog1 = false;
+            conditionForDialog[1] = true;
+            conditionForDialog[0] = false;
             dialog2.CallDialog();
-            Event(); condition1 = false;
-            sword.SetActive(false);
+            Event(); conditionForOnce[0] = false;
+            GameObject.Find("Sword").SetActive(false);
         }
 
 
-        if (characterMove.waypointIndex == 7 && condition2)
+
+        if (characterMove.waypointIndex == 7 && conditionForOnce[1])
         {
-            Event(); condition2 = false;
-            monster.SetActive(false);
-            levelLoader.LoadScene(6);
+            conditionForDialog[1] = false;
+            conditionForDialog[2] = true;
+            dialog3.CallDialog();
+            Event(); conditionForOnce[1] = false;
+            GameObject.Find("Monster").SetActive(false);
         }
+
+        if (characterMove.waypointIndex == 11)
+        {
+            levelLoader.LoadScene(8);
+        }
+
+        if (dialog3.dialogEndForObject)
+            levelLoader.LoadScene(5);
     }
 
     public void MovePlayer()

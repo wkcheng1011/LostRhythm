@@ -8,7 +8,6 @@ public class Dialog : MonoBehaviour
     public string[] sentences;
     private int index;
     public float typingSpeed;
-    private bool isTyping;
     public GameObject continueButton, dice, image, text;
     public static bool dialogEnd = false;
     public bool dialogEndForObject = false;
@@ -63,7 +62,6 @@ public class Dialog : MonoBehaviour
         dice.SetActive(false);
         if (index < sentences.Length - 1)
         {
-            isTyping = false;
             index++;
             textDisplay.text = "";
             StartCoroutine(Type());

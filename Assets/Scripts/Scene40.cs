@@ -162,6 +162,8 @@ public class Scene40 : Pausable
         PlayerData.HP = playerHp.value;
         PlayerData.MP = playerMp.value;
 
+        PlayerData.result = new int[3] { 0, 0, 0 };
+
         levelLoader.LoadScene(7);
     }
 }
