@@ -69,7 +69,7 @@ public class Scene30 : Pausable
             conditionForDialog[0] = false;
             dialog2.CallDialog();
             Event(); conditionForOnce[0] = false;
-            GameObject.Find("Sword").SetActive(false);
+            sword.SetActive(false);
         }
 
 
@@ -80,16 +80,13 @@ public class Scene30 : Pausable
             conditionForDialog[2] = true;
             dialog3.CallDialog();
             Event(); conditionForOnce[1] = false;
-            GameObject.Find("Monster").SetActive(false);
-        }
-
-        if (characterMove.waypointIndex == 11)
-        {
-            levelLoader.LoadScene(8);
         }
 
         if (dialog3.dialogEndForObject)
-            levelLoader.LoadScene(5);
+        {
+            monster.SetActive(false);
+            levelLoader.LoadScene(6);
+        }
     }
 
     public void MovePlayer()
