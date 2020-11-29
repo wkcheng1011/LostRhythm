@@ -48,7 +48,6 @@ public class Scene30 : Pausable
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 pauseScreen.active = !pauseScreen.active;
-                // Time.timeScale = pauseScreen.active ? 0.0f : 1.0f;
             }
 
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
