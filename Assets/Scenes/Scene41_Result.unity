@@ -222,6 +222,7 @@ MonoBehaviour:
   rating: {fileID: 1719300493}
   pass: {fileID: 2078212506}
   fail: {fileID: 1781422494}
+  levelLoader: {fileID: 1441893360}
 --- !u!1 &321919742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1103,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430063888}
   m_CullTransparentMesh: 0
+--- !u!114 &1441893360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3735873152971451783, guid: 0943d510015025a4e81915c0ccd150a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1286484537}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cffa341ed4b55c488909a641c613035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1579130212
 GameObject:
   m_ObjectHideFlags: 0
