@@ -40,12 +40,14 @@ public class Scene40 : Pausable
         instance = this;
 
         int totalBeats = (int)Math.Floor(beatTempo / 60f * audioSource.clip.length / 4f);
-        int totalNotes = totalBeats * Constants.DIFF_COEFF;
+        int diff_coeff = PlayerPrefs.GetInt("diff_coeff", (int)Constants.DIFF_COEFF.EASY);
+
+        int totalNotes = totalBeats * diff_coeff;
 
         int lastLane = 3;
 
         System.Random random = new System.Random();
-        for (int i = 0; i < totalNotes * (8 / Constants.DIFF_COEFF); i += (16 / Constants.DIFF_COEFF))
+        for (int i = 0; i < totalNotes * (8 / diff_coeff); i += (16 / diff_coeff))
         {
             int lane;
             do

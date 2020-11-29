@@ -13,6 +13,9 @@ public class Setting : MonoBehaviour
     public Dropdown resolutionDropdown;
     Resolution[] resolutions;
     public Toggle fullscreenToggle;
+
+    public Dropdown difficultyDropdown;
+
     public bool active
     {
         get
@@ -50,6 +53,9 @@ public class Setting : MonoBehaviour
         resolutionDropdown.value = PlayerPrefs.GetInt("Resolution", 0);
 
         resolutionDropdown.RefreshShownValue();
+
+        difficultyDropdown.AddOptions(System.Enum.GetNames(typeof(Constants.DIFF_COEFF)).ToList());
+        difficultyDropdown.value = PlayerPrefs.GetInt("diff_coeff", (int)Constants.DIFF_COEFF.EASY);
     }
 
     public void SetResolution(int index)

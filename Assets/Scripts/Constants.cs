@@ -19,5 +19,11 @@ public static class Constants
 
     public static readonly int PLATE_SPEED = 1000;
 
-    public static readonly int DIFF_COEFF = 8;
+    public enum DIFF_COEFF
+    {
+        EASY = 1,
+        NORMAL = 2,
+        HARD = 4,
+        INSANE = 8
+    }
 }
