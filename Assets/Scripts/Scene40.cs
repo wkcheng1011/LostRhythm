@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Scene40 : MonoBehaviour
+public class Scene40 : Pausable
 {
     public static Scene40 instance;
 
@@ -147,9 +147,8 @@ public class Scene40 : MonoBehaviour
         comboText.text = combo.ToString();
     }
 
-    public IEnumerator Resume()
+    public override IEnumerator Resume()
     {
-        pauseScreen.active = false;
         yield return new WaitForSeconds(3);
 
         plateObject.movable = true;
@@ -158,7 +157,7 @@ public class Scene40 : MonoBehaviour
         pauseScreen.active = false;
     }
 
-    public void Finish()
+    public override void Finish()
     {
         PlayerData.HP = playerHp.value;
         PlayerData.MP = playerMp.value;

@@ -28,7 +28,7 @@ public class Scene00 : MonoBehaviour
         switch (button.name)
         {
             case "NewGame":
-                levelLoader.LoadScene(6);
+                levelLoader.LoadScene(5);
                 break;
             case "Continue":
                 break;

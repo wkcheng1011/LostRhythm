@@ -1,25 +1,34 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Dice : MonoBehaviour {
+public class Dice : MonoBehaviour
+{
+    public Scene30 gameControl;
 
-    
-    private Sprite[] diceSides;
-    private SpriteRenderer rend;
-    private bool coroutineAllowed = true;
+    public Sprite[] diceSides;
+    public SpriteRenderer spriteRenderer;
+    public bool coroutineAllowed = true;
 
-    private void Start () {
-        rend = GetComponent<SpriteRenderer>();
-        diceSides = Resources.LoadAll<Sprite>("DiceSides/");
-	}
-	
-
-    private void OnMouseDown()
+    public int diceSideThrown;
+    public bool active
     {
-        if(coroutineAllowed)
-        StartCoroutine("RollTheDice");
+        get
+        {
+            return gameObject.activeSelf;
+        }
+        set
+        {
+            gameObject.SetActive(value);
+        }
     }
 
+    public void Roll()
+    {
+        if (coroutineAllowed)
+        {
+            StartCoroutine("RollTheDice");
+        }
+    }
 
     private IEnumerator RollTheDice()
     {
@@ -27,17 +36,13 @@ public class Dice : MonoBehaviour {
         int randomDiceSide = 0;
         for (int i = 0; i <= 20; i++)
         {
- 
             randomDiceSide = Random.Range(0, 5);
-            rend.sprite = diceSides[randomDiceSide];
+            spriteRenderer.sprite = diceSides[randomDiceSide];
             yield return new WaitForSeconds(0.05f);
         }
 
-
-        GameControl.diceSideThrown = randomDiceSide + 1;
-        GameControl.MovePlayer();
+        diceSideThrown = randomDiceSide + 1;
+        gameControl.MovePlayer();
         coroutineAllowed = true;
-    
     }
-
 }

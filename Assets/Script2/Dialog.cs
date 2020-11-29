@@ -8,68 +8,72 @@ public class Dialog : MonoBehaviour
     public string[] sentences;
     private int index;
     public float typingSpeed;
+    private bool isTyping;
     public GameObject continueButton, dice, image, text;
     public static bool dialogEnd = false;
-    
 
     public void CallDialog()
     {
-            
-            StartDialog();
-            StartCoroutine(Type());       
-       
+        StartDialog();
+        StartCoroutine(Type());
     }
 
-    private void Update()
+    void Update()
     {
-        if (textDisplay.text == sentences[index]) {
+        if (textDisplay.text == sentences[index])
+        {
             continueButton.SetActive(true);
+            dialogEnd = true;
         }
-        
-
-
     }
-    public void StartDialog() {
-        
+    public void StartDialog()
+    {
         continueButton.SetActive(false);
         dice.SetActive(false);
         image.SetActive(true);
         text.SetActive(true);
-        
-
     }
 
-
-    public IEnumerator Type() {
-        foreach (char letter in sentences[index].ToCharArray()) {
+    public IEnumerator Type()
+    {
+        bool tagOpen = false;
+        foreach (char letter in sentences[index].ToCharArray())
+        {
+            if (letter == '<')
+            {
+                tagOpen = true;
+            }
+            if (letter == '>')
+            {
+                tagOpen = false;
+            }
             textDisplay.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            if (!tagOpen)
+            {
+                yield return new WaitForSeconds(typingSpeed);
+            }
         }
-
     }
 
-    public void NextSentence() {
+    public void NextSentence()
+    {
         continueButton.SetActive(false);
         dice.SetActive(false);
-        if (index < sentences.Length-1)
+        if (index < sentences.Length - 1)
         {
+            isTyping = false;
             index++;
             textDisplay.text = "";
             StartCoroutine(Type());
-
         }
-        else {
+        else
+        {
             textDisplay.text = "";
             image.SetActive(false);
             text.SetActive(false);
             continueButton.SetActive(false);
             dice.SetActive(true);
             dialogEnd = true;
-            
-            
         }
     }
-
-
-
 }

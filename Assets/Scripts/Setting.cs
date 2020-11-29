@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SettingScript : MonoBehaviour
+public class Setting : MonoBehaviour
 {
     public AudioMixer AudioMixer;
     public Slider volumeSlider;
@@ -13,6 +13,17 @@ public class SettingScript : MonoBehaviour
     public Dropdown resolutionDropdown;
     Resolution[] resolutions;
     public Toggle fullscreenToggle;
+    public bool active
+    {
+        get
+        {
+            return gameObject.activeSelf;
+        }
+        set
+        {
+            gameObject.SetActive(value);
+        }
+    }
 
     public void SetVolume(float volume)
     {
