@@ -10,6 +10,8 @@ public class Scene41 : MonoBehaviour
     public Text rating;
     public AudioSource pass, fail;
 
+    public LevelLoader levelLoader;
+
     void Start()
     {
         for (int i = 0; i < 3; i++)
@@ -31,6 +33,9 @@ public class Scene41 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            levelLoader.LoadScene(6);
+        }
     }
 }

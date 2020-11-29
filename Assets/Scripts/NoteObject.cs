@@ -6,7 +6,7 @@ public class NoteObject : MonoBehaviour
 {
     public static NoteObject instance;
 
-    public Constants.NOTE_TYPE noteType = Constants.NOTE_TYPE.NORMAL;
+    public Constants.NOTE_TYPE noteType;
 
     // Start is called before the first frame update
     void Start()

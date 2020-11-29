@@ -12,6 +12,8 @@ public class Scene00 : MonoBehaviour
     public TextButton Credits;
     public TextButton Quit;
 
+    public Setting optionMenu;
+
     void Awake()
     {
         NewGame.SetCallback(OnButtonClick);
@@ -28,12 +30,14 @@ public class Scene00 : MonoBehaviour
         switch (button.name)
         {
             case "NewGame":
-                levelLoader.LoadScene(5);
+                levelLoader.LoadScene(3);
                 break;
             case "Continue":
                 break;
+            case "Settings":
+                optionMenu.active = true;
+                break;
             case "Credits":
-                levelLoader.LoadScene(1);
                 break;
             case "Quit":
                 levelLoader.Back();

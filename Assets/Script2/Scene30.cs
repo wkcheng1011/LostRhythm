@@ -87,7 +87,7 @@ public class Scene30 : Pausable
         if (dialog3.dialogEndForObject)
         {
             monster.SetActive(false);
-            levelLoader.LoadScene(6);
+            levelLoader.LoadScene(4);
         }
     }
 
