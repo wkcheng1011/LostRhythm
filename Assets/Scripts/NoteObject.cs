@@ -18,7 +18,7 @@ public class NoteObject : MonoBehaviour
     {
         if (gameObject.transform.position[1] < 20)
         {
-            if (noteType != Constants.NOTE_TYPE.BOMB) Scene40.instance.NoteHit(Constants.NOTE_TYPE.BOMB);
+            Scene40.instance.NoteHit(noteType, false);
             gameObject.SetActive(false);
         }
     }
@@ -27,7 +27,7 @@ public class NoteObject : MonoBehaviour
         // Debug.Log(collision);
         if (collision.CompareTag("Player"))
         {
-            Scene40.instance.NoteHit(noteType);
+            Scene40.instance.NoteHit(noteType, true);
             gameObject.SetActive(false);
         }
     }

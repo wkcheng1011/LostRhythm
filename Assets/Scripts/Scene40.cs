@@ -95,8 +95,9 @@ public class Scene40 : Pausable
             Finish();
         }
 
-        if (audioSource.time == audioSource.clip.length)
+        if (audioSource.time == audioSource.clip.length || bossHp.value == 0)
         {
+            PlayerData.isPass = true;
             Finish();
         }
 
@@ -115,33 +116,29 @@ public class Scene40 : Pausable
             }
         }
     }
-    public void NoteHit(Constants.NOTE_TYPE type)
+    public void NoteHit(Constants.NOTE_TYPE type, bool isHit)
     {
-        switch (type)
+        if (type == Constants.NOTE_TYPE.BOMB && isHit || type != Constants.NOTE_TYPE.BOMB && !isHit)
         {
-            case Constants.NOTE_TYPE.BOMB:
-                combo = 0;
-                playerHp.value -= 0.05f;
-                playerMp.value -= 0.05f;
-                bossMp.value += 0.05f;
-                bossHp.value += 0.05f;
-                break;
-            case Constants.NOTE_TYPE.SPECIAL:
-                combo++;
+            combo = 0;
+            playerHp.value -= 0.05f;
+            playerMp.value -= 0.05f;
+            bossMp.value += 0.05f;
+            bossHp.value += 0.05f;
+        }
+        else
+        {
+            if (type == Constants.NOTE_TYPE.SPECIAL)
+            {
                 bossHp.value -= 0.05f;
                 playerHp.value += 0.05f;
-                goto case Constants.NOTE_TYPE.NORMAL;
-            case Constants.NOTE_TYPE.NORMAL:
-                combo++;
-                playerMp.value += 0.01f;
-
-                beatSource.Play();
-                break;
-            default:
-                break;
+            }
+            combo++;
+            playerMp.value += 0.01f;
+            beatSource.Play();
         }
 
-        PlayerData.noteHit[(int)type]++;
+        if (isHit) PlayerData.noteHit[(int)type]++;
 
         score += (int)(300f * (combo / 100f));
 
