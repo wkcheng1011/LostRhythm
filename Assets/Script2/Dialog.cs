@@ -11,6 +11,8 @@ public class Dialog : MonoBehaviour
     private bool isTyping;
     public GameObject continueButton, dice, image, text;
     public static bool dialogEnd = false;
+    public bool dialogEndForObject = false;
+    
 
     public void CallDialog()
     {
@@ -74,6 +76,9 @@ public class Dialog : MonoBehaviour
             continueButton.SetActive(false);
             dice.SetActive(true);
             dialogEnd = true;
+            dialogEndForObject = true;
+            
+            
         }
     }
 }
