@@ -13,6 +13,7 @@ public class Scene30 : Pausable
     public Move characterMove;
     public PauseScreen pauseScreen;
 
+    public GameObject arrow;
     public Dice dice;
     public int playerStartWayPoint = 0;
 
@@ -57,6 +58,8 @@ public class Scene30 : Pausable
             }
         }
 
+        arrow.SetActive(dice.active && !characterMove.moveAllowed);
+        
         if (characterMove.waypointIndex > playerStartWayPoint + dice.diceSideThrown)
         {
             characterMove.moveAllowed = false;
