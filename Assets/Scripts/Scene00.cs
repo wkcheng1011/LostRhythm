@@ -12,6 +12,8 @@ public class Scene00 : MonoBehaviour
     public TextButton Credits;
     public TextButton Quit;
 
+    public AudioSource hit;
+
     public Setting optionMenu;
 
     void Awake()
@@ -27,6 +29,7 @@ public class Scene00 : MonoBehaviour
 
     public void OnButtonClick(TextButton button)
     {
+        hit.Play();
         switch (button.name)
         {
             case "NewGame":
