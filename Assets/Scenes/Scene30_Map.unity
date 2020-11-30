@@ -1641,6 +1641,7 @@ MonoBehaviour:
   - <i>The sword you just picked up started trembling and shining.</i>
   - <i>Your feel a power running through your body.</i>
   - <u><b>I am ready.</b></u>
+  - <i>(Use W, D to control the plate and RShift to accelerate.)</i>
   typingSpeed: 0.01
   continueButton: {fileID: 298054997}
   dice: {fileID: 2136235938}
