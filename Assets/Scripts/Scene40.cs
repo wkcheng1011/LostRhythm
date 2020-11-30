@@ -14,7 +14,6 @@ public class Scene40 : Pausable
     public float beatTempo;
     public AudioSource audioSource;
     public AudioSource beatSource;
-    public AudioSource breakSource;
 
     private bool isPlaying = false;
     public BeatScroller beatScroller;
@@ -128,8 +127,6 @@ public class Scene40 : Pausable
             playerMp.value -= 0.05f;
             bossMp.value += 0.05f;
             bossHp.value += 0.05f;
-
-            breakSource.Play();
         }
         else
         {
@@ -153,8 +150,6 @@ public class Scene40 : Pausable
 
     public override IEnumerator Resume()
     {
-        pauseScreen.setting.active = false;
-        pauseScreen.active = false;
         yield return new WaitForSeconds(3);
 
         plateObject.movable = true;
