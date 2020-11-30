@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System;
 
 public class Setting : MonoBehaviour
 {
-    public AudioMixer AudioMixer;
+    public static AudioMixer audioMixer;
     public Slider volumeSlider;
 
     public Dropdown resolutionDropdown;
@@ -28,16 +29,20 @@ public class Setting : MonoBehaviour
         }
     }
 
-    public void SetVolume(float volume)
+    public void _SetVolume(float volume)
     {
-        AudioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
+        SetVolume(volume);
+    }
+
+    public static void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("volume", volume);
     }
 
     private void Start()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("volume", 0.5f);
-        SetVolume(volumeSlider.value);
 
         fullscreenToggle.isOn = Screen.fullScreen;
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
@@ -55,7 +60,7 @@ public class Setting : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
 
         difficultyDropdown.AddOptions(System.Enum.GetNames(typeof(Constants.DIFF_COEFF)).ToList());
-        difficultyDropdown.value = PlayerPrefs.GetInt("diff_coeff", (int)Constants.DIFF_COEFF.EASY);
+        difficultyDropdown.value = PlayerPrefs.GetInt("diff_coeff", 0);
     }
 
     public void SetResolution(int index)
@@ -73,7 +78,10 @@ public class Setting : MonoBehaviour
     {
         Screen.fullScreen = condition;
     }
-
+    
+    public void SetDifficulty(int difficultyIndex) {
+        PlayerPrefs.SetInt("diff_coeff", (int)Math.Pow(2, difficultyIndex - 1));
+    }
     public void OnSave()
     {
         gameObject.SetActive(false);

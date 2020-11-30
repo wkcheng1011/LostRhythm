@@ -409,18 +409,12 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: LOW
-      m_Image: {fileID: 0}
-    - m_Text: MEDIUM
-      m_Image: {fileID: 0}
-    - m_Text: HIGH
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8747186403294042289}
-        m_MethodName: SetQuality
+        m_MethodName: SetDifficulty
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -429,7 +423,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
   m_AlphaFadeSpeed: 0.15
 --- !u!1 &1120662497764530680
 GameObject:
@@ -1365,7 +1359,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOW
+  m_Text: 
 --- !u!1 &4975808837336487718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,7 +3118,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8747186403294042289}
-        m_MethodName: SetVolume
+        m_MethodName: _SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3133,7 +3127,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!1 &8747186402238758410
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,7 +4603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543b3d9f5ba4b5a428d62288c2948ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioMixer: {fileID: 24100000, guid: fe915bc741b08ed418d4acec268a8acd, type: 2}
   volumeSlider: {fileID: 8747186402206311322}
   resolutionDropdown: {fileID: 8747186403510744584}
   fullscreenToggle: {fileID: 8747186402289355275}
